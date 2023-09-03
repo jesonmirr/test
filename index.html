@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>SCMT</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" media="screen and (max-width: 720px)" href="./css/mobile.css">
+    <link rel="stylesheet" media="screen and (min-width: 721px)" href="./css/index.css">
+</head>
+<body>
+    <script>
+        (function (designWidth, maxWidth) {
+    var doc = document,
+        win = window;
+    var docEl = doc.documentElement;
+    var tid;
+    var rootItem, rootStyle;
+ 
+    function refreshRem() {
+        var width = docEl.getBoundingClientRect().width;
+        if (!maxWidth) {
+            maxWidth = 1920;
+        };
+        if (width > maxWidth) {
+            width = maxWidth;
+        }
+        //与淘宝做法不同，直接采用简单的rem换算方法1rem=100px
+        var rem = width * 75 / designWidth;
+        //兼容UC开始
+        rootStyle = "html{font-size:" + rem + 'px !important}';
+        rootItem = document.getElementById('rootsize') || document.createElement("style");
+        if (!document.getElementById('rootsize')) {
+            document.getElementsByTagName("head")[0].appendChild(rootItem);
+            rootItem.id = 'rootsize';
+        }
+        if (rootItem.styleSheet) {
+            rootItem.styleSheet.disabled || (rootItem.styleSheet.cssText = rootStyle)
+        } else {
+            try {
+                rootItem.innerHTML = rootStyle
+            } catch (f) {
+                rootItem.innerText = rootStyle
+            }
+        }
+        //兼容UC结束
+        docEl.style.fontSize = rem + "px";
+    };
+    refreshRem();
+ 
+    win.addEventListener("resize", function () {
+        clearTimeout(tid); //防止执行两次
+        tid = setTimeout(refreshRem, 300);
+    }, false);
+ 
+    win.addEventListener("pageshow", function (e) {
+        if (e.persisted) { // 浏览器后退的时候重新计算
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }
+    }, false);
+ 
+    if (doc.readyState === "complete") {
+        doc.body.style.fontSize = "16px";
+    } else {
+        doc.addEventListener("DOMContentLoaded", function (e) {
+            doc.body.style.fontSize = "16px";
+        }, false);
+    }
+})(751, 2560);
+    </script>
+    <div class="container" id="pc">
+        <div class="top">
+            <img src="./img/logo .png" alt="" />
+            <ul class="top_name">
+                <li><a>Build</a></li>
+                <li><a>IDO</a></li>
+                <li><a>Rewards</a></li>
+                <li><a>Governance</a></li>
+                <li><a>Community</a></li>
+                <li><a>Contact</a></li>
+                <li><a class="docs_" href="https://scmt-finance.gitbook.io/scmt-finance/">Docs</a></li>
+            </ul>
+        </div>
+        <div class="one_box">
+            <p class="one_text1">Asset Combination</p>
+            <p class="one_text2">Built on ZKSync.<img src="./img/ball.png" alt="" /></p>
+            <!--<img src="./img/beijingtu .png" alt="" />-->
+        </div>
+        <div class="two_box">
+            <img src="./img/bi.png" alt="" />
+            <div>
+                <h3>What is SCMT Finance?</h3>
+                <p>SCMT Finance is a secure, efficient, and convenient asset<br />transfer and storage platform built on ZKSync. </p>
+                <a href="https://scmt-finance.gitbook.io/scmt-finance/">What is SCMT Finance? <img src="./img/right.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="three_box">
+            <h3>Diversified Asset Selection and<br />Flexible Asset Portfolio</h3>
+            <p>SCMT Finance is a Layer 2 scaling solution built on the ZKSync, using zero-knowledge proof to<br /> achieve fast and low-cost transactions. ZKSync provides high-level security and privacy protection<br /> and allows for real-time asset transfer.<br />
+SCMT Finance can use asset bundling and unbundling functionalities, and with the use of<br /> multi-signature technology, it ensures the security of asset transfer and storage, allowing users to<br /> transfer multiple assets in a single transaction.
+            </p>
+            <div>
+                <div class="three_1">
+                    <img src="./img/1.png" alt="" />
+                    <h3>Bundle</h3>
+                    <p>Asset bundling option,Asset unbundling and recombination,Automatic asset adjustment and rebalancing.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+                <div class="three_1">
+                    <img src="./img/2.png" alt="" />
+                    <h3>Transfer</h3>
+                    <p>Real-time asset transfer,Regular and fixed amount asset transfer,Cross-chain transfer.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+                <div class="three_1">
+                    <img src="./img/3.png" alt="" />
+                    <h3>Application Scenarios</h3>
+                    <p>Cross-chain payments,Decentralized finance (DeFi),Asset management,NFTs,Supply chain management,Rewards and incentives.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="four_box">
+            <h3>Secure,Efficient,Convenient</h3>
+            <p>SCMT Finance provides users with multiple advantages, including reduced<br />transaction costs, increased asset liquidity, diverse asset selection and flexible<br />asset composition, real-time asset transfer, and fast asset storage.</p>
+            <img src="./img/anquan.png" alt="" />
+        </div>
+        <div class="five_box">
+            <h3>Asset Security</h3>
+            <p>SCMT Finance has taken multiple measures to ensure the security of user assets,<br />including the separation of hot and cold wallets, multi-signature verification, security<br />audits, insurance, and security awareness education. </p>
+            <div>
+                <div class="five_1">
+                    <img src="./img/wallt.png" alt="" />
+                    <h3>Wallet Separation</h3>
+                    <p>The hot wallet is used to process users' transaction requests, while the cold wallet is used to store a large amount of digital assets to ensure the security of the assets.</p>
+                </div>
+                <div class="five_1">
+                    <img src="./img/multi.png" alt="" />
+                    <h3>Multi-signature</h3>
+                    <p>Multi-signature requires multiple signatures to complete a transaction, which can avoid the risk of single signature tampering or attacks.</p>
+                </div>
+                <div class="five_1">
+                    <img src="./img/security.png" alt="" />
+                    <h3>Security Audit</h3>
+                    <p>Through security audits, SCMT Finance can identify and address potential security issues and optimize and improve the platform's security policies and measures to enhance the platform's security and user trust.</p>
+                </div>
+            </div>
+        </div>
+        <div class="six_box">
+            <h3>Investment Agency</h3>
+            <div class="six_box_1"></div>
+            <div class="pz">
+                <img src="./img/1_1.png" alt="" />
+                <img src="./img/1_2.png" alt="" />
+                <img src="./img/1_3.png" alt="" />
+                <img src="./img/1_4.png" alt="" />
+                <img src="./img/1_5.png" alt="" />
+                <img src="./img/1_6.png" alt="" />
+                <img src="./img/1_7.png" alt="" />
+                <img src="./img/1_8.png" alt="" />
+                <img src="./img/1_9.png" alt="" />
+                <img src="./img/1_10.png" alt="" />
+                <img src="./img/1_11.png" alt="" />
+            </div>
+        </div>
+        <div class="six_box" style="background:white;padding-left:18.75%;padding-right:18.75%">
+            <h3>Media Reports</h3>
+            <div class="six_box_1"></div>
+            <div class="pz">
+                <img src="./img/2_1.png" alt="" />
+                <img src="./img/2_2.png" alt="" />
+                <img src="./img/2_3.png" alt="" />
+                <img src="./img/2_4.png" alt="" />
+                <img src="./img/2_5.png" alt="" />
+            </div>
+        </div>
+        <div class="six_box">
+            <h3>Strategic Partner</h3>
+            <div class="six_box_1"></div>
+            <div class="pz pz_3">
+                <img src="./img/3_1.png" alt="" />
+                <img src="./img/3_2.png" alt="" />
+                <img src="./img/3_3.png" alt="" />
+                <img src="./img/3_4.png" alt="" />
+                <img src="./img/3_5.png" alt="" />
+                <img src="./img/3_6.png" alt="" />
+                <img src="./img/3_7.png" alt="" />
+                <img src="./img/3_8.png" alt="" />
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="inline-flex">
+                <img class="b1" src="./img/logo .png" alt="" />
+                <div class="b1_lm">
+                    |
+                </div>
+                <p class="b2">Built with & by the ZKSync community.</p>
+            </div>
+            <div class="inline-flex">
+              <img class="b3" id="b3" src="./img/b1.png" alt="" />
+              <img class="b4" id="b4" src="./img/b2.png" alt="" />
+              <img class="b5" id="b5" src="./img/b3.png" alt="" /> 
+           </div>
+            
+        </div>
+    </div>
+    <div class="container" id="mobile">
+        <div class="top">
+            <img src="./img/logo .png" alt="" />
+            <!--<div class="docs_l" id="docs_l">-->
+                <img class="docs_l" id="docs_l" src="./img/tab_logo.png" alt="" />
+            <!--</div>-->
+            <a class="docs_" href="https://scmt-finance.gitbook.io/scmt-finance/">Docs</a>
+            <div id="mobile_top_nav" class="mobile_top_nav">
+            <img src="./img/close.png" id="nav_close" class="nav_close" />
+            <ul>
+                <li><a class="top_a">Build</a></li>
+                <li><a class="top_a">IDO</a></li>
+                <li><a class="top_a">Rewards</a></li>
+                <li><a class="top_a">Governance</a></li>
+                <li><a class="top_a">Community</a></li>
+                <li><a class="top_a">Contact</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="one_box">
+            <p class="one_text1">Asset Combination</p>
+            <p class="one_text2">Built on ZKSync.<img src="./img/ball.png" alt="" /></p>
+            <!--<img src="./img/beijingtu1.png" alt="" />-->
+        </div>
+        <div class="two_box">
+            <img src="./img/bi.png" alt="" />
+            <div>
+                <h3>What is SCMT Finance?</h3>
+                <p>SCMT Finance is a secure, efficient, and<br />convenient asset transfer and storage<br />platform built on ZKSync. </p>
+                <a href="https://scmt-finance.gitbook.io/scmt-finance/">What is SCMT Finance? <img src="./img/right.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="three_box">
+            <h3>Diversified Asset Selection and<br />Flexible Asset Portfolio</h3>
+            <p>SCMT Finance is a Layer 2 scaling solution built on the ZKSync, using zero-knowledge proof to achieve fast and low-cost transactions. ZKSync provides high-level security and privacy protection and allows for real-time asset transfer.<br />
+SCMT Finance can use asset bundling and unbundling functionalities, and with the use of multi-signature technology, it ensures the security of asset transfer and storage, allowing users to transfer multiple assets in a single transaction.
+            </p>
+            <div>
+                <div class="three_1">
+                    <img src="./img/1.png" alt="" />
+                    <h3>Bundle</h3>
+                    <p>Asset bundling option,Asset unbundling and recombination,Automatic asset adjustment and rebalancing.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+                <div class="three_1">
+                    <img src="./img/2.png" alt="" />
+                    <h3>Transfer</h3>
+                    <p>Real-time asset transfer,Regular and fixed amount asset transfer,Cross-chain transfer.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+                <div class="three_1">
+                    <img src="./img/3.png" alt="" />
+                    <h3>Application Scenarios</h3>
+                    <p>Cross-chain payments,Decentralized finance (DeFi),Asset management,NFTs,Supply chain management,Rewards and incentives.</p>
+                    <a href="">Learn More <img src="./img/right.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="four_box">
+            <h3>Secure,Efficient,Convenient</h3>
+            <p>SCMT Finance provides users with multiple advantages,<br />including reduced transaction costs, increased asset liquidity,<br />diverse asset selection and flexible asset composition, real-<br />time asset transfer, and fast asset storage.</p>
+            <img src="./img/anquan.png" alt="" />
+        </div>
+        <div class="five_box">
+            <h3>Asset Security</h3>
+            <p>SCMT Finance has taken multiple measures to ensure the<br />security of user assets, including the separation of hot and<br /> cold wallets, multi-signature verification, security audits,<br />insurance, and security awareness education. </p>
+            <div>
+                <div class="five_1">
+                    <img src="./img/wallt.png" alt="" />
+                    <h3>Wallet Separation</h3>
+                    <p>The hot wallet is used to process users' transaction requests, while the cold wallet is used to store a large amount of digital assets to ensure the security of the assets.</p>
+                </div>
+                <div class="five_1">
+                    <img src="./img/multi.png" alt="" />
+                    <h3>Multi-signature</h3>
+                    <p>Multi-signature requires multiple signatures to complete a transaction, which can avoid the risk of single signature tampering or attacks.</p>
+                </div>
+                <div class="five_1">
+                    <img src="./img/security.png" alt="" />
+                    <h3>Security Audit</h3>
+                    <p>Through security audits, SCMT Finance can identify and address potential security issues and optimize and improve the platform's security policies and measures to enhance the platform's security and user trust.</p>
+                </div>
+            </div>
+        </div>
+        <div class="six_box">
+            <h3>Investment Agency</h3>
+            <div class="six_box_1"></div>
+            <div class="pz">
+                <img src="./img/1_1.png" alt="" />
+                <img src="./img/1_2.png" alt="" />
+                <img src="./img/1_3.png" alt="" />
+                <img src="./img/1_4.png" alt="" />
+                <img src="./img/1_5.png" alt="" />
+                <img src="./img/1_6.png" alt="" />
+                <img src="./img/1_7.png" alt="" />
+                <img src="./img/1_8.png" alt="" />
+                <img src="./img/1_9.png" alt="" />
+                <img src="./img/1_10.png" alt="" />
+                <img src="./img/1_11.png" alt="" />
+            </div>
+        </div>
+        <div class="six_box" style="background:white;padding-left:6.25%;padding-right:6.25%">
+            <h3>Media Reports</h3>
+            <div class="six_box_1"></div>
+            <div class="pz">
+                <img src="./img/2_1.png" alt="" />
+                <img src="./img/2_2.png" alt="" />
+                <img src="./img/2_3.png" alt="" />
+                <img src="./img/2_4.png" alt="" />
+                <img src="./img/2_5.png" alt="" />
+            </div>
+        </div>
+        <div class="six_box">
+            <h3>Strategic Partner</h3>
+            <div class="six_box_1"></div>
+            <div class="pz pz_3">
+                <img src="./img/3_1.png" alt="" />
+                <img src="./img/3_2.png" alt="" />
+                <img src="./img/3_3.png" alt="" />
+                <img src="./img/3_4.png" alt="" />
+                <img src="./img/3_5.png" alt="" />
+                <img src="./img/3_6.png" alt="" />
+                <img src="./img/3_7.png" alt="" />
+                <img src="./img/3_8.png" alt="" />
+            </div>
+        </div>
+        <div class="bottom">
+           <div class="inline-flex">
+                <img class="b1" src="./img/logo .png" alt="" />
+                <div class="b1_lm">
+                    |
+                </div>
+                <p class="b2">Built with & by the ZKSync community.</p>
+            </div>
+            <div class="inline-flex-2" >
+              <img class="b3" id="b6" src="./img/b1.png" alt="" />
+              <img class="b4" id="b4" src="./img/b2.png" alt="" />
+              <img class="b5" id="b8" src="./img/b3.png" alt="" /> 
+           </div>
+        </div>
+    </div>
+    <script src="./js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var b3 = document.getElementById('b3')
+        var b4 = document.getElementById('b4')
+        var b5 = document.getElementById('b5')
+        var b6 = document.getElementById('b6')
+        var b7 = document.getElementById('b7')
+        var b8 = document.getElementById('b8')
+        b3.onclick = function(){
+            window.location.href = 'https://twitter.com/SCMT_Finance'
+        }
+        b5.onclick = function(){
+            window.location.href = 'https://medium.com/@SCMT_Finance'
+        }
+        b6.onclick = function(){
+            window.location.href = 'https://twitter.com/SCMT_Finance'
+        }
+        b8.onclick = function(){
+            window.location.href = 'https://medium.com/@SCMT_Finance'
+        }
+        var nav = document.getElementById('mobile_top_nav')
+    var nav_btn = document.getElementById('docs_l')
+    var nav_close = document.getElementById('nav_close')
+    // var mask = document.getElementById('shadow')
+    nav_btn.onclick = function(){
+            nav.style.display = 'block'
+            // mask.style.display = 'block'
+        }
+        nav_close.onclick = function(){
+            nav.style.display = 'none'
+            // mask.style.display = 'none'
+        }
+        $(".top_a").click(function(){
+          nav.style.display = 'none'
+        //   mask.style.display = 'none'
+        });
+        document.documentElement.addEventListener(
+            'touchstart',
+            function(event) {
+              if (event.touches.length > 1) {
+                event.preventDefault()
+              }
+            },
+            {
+              passive: false
+            }
+          )
+          var lastTouchEnd = 0
+          document.documentElement.addEventListener(
+            'touchend',
+            function(event) {
+              var now = Date.now()
+              if (now - lastTouchEnd <= 300) {
+                event.preventDefault()
+              }
+              lastTouchEnd = now
+            },
+            {
+              passive: false
+            }
+         )
+    </script>
+</body>
+</html>
